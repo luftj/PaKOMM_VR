@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NewtonsoftMessagePack</name>
+    </assembly>
+    <members>
+        <member name="T:Newtonsoft.MessagePack.MessagePackBinary">
+            <summary>
+            Encode/Decode Utility of MessagePack Spec.
+            https://github.com/msgpack/msgpack/blob/master/spec.md
+            </summary>
+        </member>
+        <member name="F:Newtonsoft.MessagePack.MessagePackBinary.MaxArrayAllocationSize">
+            <summary>
+            A maximum allowable element count for any array or map allocated by this class
+            when reading from non-seekable streams.
+            The default is <see cref="F:System.Int32.MaxValue"/>.
+            </summary>
+            <remarks>
+            When reading from a byte array or seekable streams, the actual length
+            of the remaining buffer or stream is used to calculate a safe limit.
+            </remarks>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteFixedMapHeaderUnsafe(System.Byte[]@,System.Int32,System.Int32)">
+            <summary>
+            Unsafe. If value is guranteed 0 ~ MessagePackRange.MaxFixMapCount(15), can use this method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteMapHeader(System.Byte[]@,System.Int32,System.Int32)">
+            <summary>
+            Write map count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteMapHeader(System.Byte[]@,System.Int32,System.UInt32)">
+            <summary>
+            Write map count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteMapHeaderForceMap32Block(System.Byte[]@,System.Int32,System.UInt32)">
+            <summary>
+            Write map format header, always use map32 format(length is fixed, 5).
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.ReadMapHeader(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Return map count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.ReadMapHeaderRaw(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Return map count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteFixedArrayHeaderUnsafe(System.Byte[]@,System.Int32,System.Int32)">
+            <summary>
+            Unsafe. If value is guranteed 0 ~ MessagePackRange.MaxFixArrayCount(15), can use this method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteArrayHeader(System.Byte[]@,System.Int32,System.Int32)">
+            <summary>
+            Write array count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteArrayHeader(System.Byte[]@,System.Int32,System.UInt32)">
+            <summary>
+            Write array count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteArrayHeaderForceArray32Block(System.Byte[]@,System.Int32,System.UInt32)">
+            <summary>
+            Write array format header, always use array32 format(length is fixed, 5).
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.ReadArrayHeader(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Return array count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.ReadArrayHeaderRaw(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Return array count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WritePositiveFixedIntUnsafe(System.Byte[]@,System.Int32,System.Int32)">
+            <summary>
+            Unsafe. If value is guranteed 0 ~ MessagePackCode.MaxFixInt(127), can use this method.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteInt32ForceInt32Block(System.Byte[]@,System.Int32,System.Int32)">
+            <summary>
+            Acquire static message block(always 5 bytes).
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteFixedStringUnsafe(System.Byte[]@,System.Int32,System.String,System.Int32)">
+            <summary>
+            Unsafe. If value is guranteed length is 0 ~ 31, can use this method.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteStringUnsafe(System.Byte[]@,System.Int32,System.String,System.Int32)">
+            <summary>
+            Unsafe. If pre-calculated byteCount of target string, can use this method.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteExtensionFormatHeaderForceExt32Block(System.Byte[]@,System.Int32,System.SByte,System.Int32)">
+            <summary>
+            Write extension format header, always use ext32 format(length is fixed, 6).
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.ReadExtensionFormatHeader(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            return byte length of ExtensionFormat.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.ThrowNotEnoughBytesException">
+            <summary>
+            Throws an exception indicating that there aren't enough bytes remaining in the buffer to store
+            the promised data.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.ReadMessageBlockFromStreamUnsafe(System.IO.Stream,System.Boolean,System.Int32@)">
+            <summary>
+            Read MessageBlock, returns byte[] block is in MemoryPool so careful to use.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteFixedMapHeaderUnsafe(System.IO.Stream,System.Int32)">
+            <summary>
+            Unsafe. If value is guranteed 0 ~ MessagePackRange.MaxFixMapCount(15), can use this method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteMapHeader(System.IO.Stream,System.Int32)">
+            <summary>
+            Write map count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteMapHeader(System.IO.Stream,System.UInt32)">
+            <summary>
+            Write map count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteMapHeaderForceMap32Block(System.IO.Stream,System.UInt32)">
+            <summary>
+            Write map format header, always use map32 format(length is fixed, 5).
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.ReadMapHeader(System.IO.Stream)">
+            <summary>
+            Return map count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.ReadMapHeaderRaw(System.IO.Stream)">
+            <summary>
+            Return map count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteFixedArrayHeaderUnsafe(System.IO.Stream,System.Int32)">
+            <summary>
+            Unsafe. If value is guranteed 0 ~ MessagePackRange.MaxFixArrayCount(15), can use this method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteArrayHeader(System.IO.Stream,System.Int32)">
+            <summary>
+            Write array count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteArrayHeader(System.IO.Stream,System.UInt32)">
+            <summary>
+            Write array count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteArrayHeaderForceArray32Block(System.IO.Stream,System.UInt32)">
+            <summary>
+            Write array format header, always use array32 format(length is fixed, 5).
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.ReadArrayHeader(System.IO.Stream)">
+            <summary>
+            Return array count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.ReadArrayHeaderRaw(System.IO.Stream)">
+            <summary>
+            Return array count.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WritePositiveFixedIntUnsafe(System.IO.Stream,System.Int32)">
+            <summary>
+            Unsafe. If value is guranteed 0 ~ MessagePackCode.MaxFixInt(127), can use this method.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteInt32ForceInt32Block(System.IO.Stream,System.Int32)">
+            <summary>
+            Acquire static message block(always 5 bytes).
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteFixedStringUnsafe(System.IO.Stream,System.String,System.Int32)">
+            <summary>
+            Unsafe. If value is guranteed length is 0 ~ 31, can use this method.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteStringUnsafe(System.IO.Stream,System.String,System.Int32)">
+            <summary>
+            Unsafe. If pre-calculated byteCount of target string, can use this method.
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.WriteExtensionFormatHeaderForceExt32Block(System.IO.Stream,System.SByte,System.Int32)">
+            <summary>
+            Write extension format header, always use ext32 format(length is fixed, 6).
+            </summary>
+        </member>
+        <member name="M:Newtonsoft.MessagePack.MessagePackBinary.ReadExtensionFormatHeader(System.IO.Stream)">
+            <summary>
+            return byte length of ExtensionFormat.
+            </summary>
+        </member>
+        <member name="T:Newtonsoft.MessagePack.MessagePackReader">
+            <remarks>
+            This class is mostly based on
+            https://github.com/neuecc/MessagePack-CSharp/blob/v1.7.3.7/src/MessagePack/Formatters/PrimitiveObjectFormatter.cs
+            and on
+            https://github.com/JamesNK/Newtonsoft.Json.Bson/blob/master/Src/Newtonsoft.Json.Bson/BsonDataReader.cs
+            </remarks>>
+        </member>
+        <member name="T:Newtonsoft.MessagePack.MessagePackWriter">
+            <remarks>
+            This class is mostly based on
+            https://github.com/neuecc/MessagePack-CSharp/blob/v1.7.3.7/src/MessagePack/Formatters/PrimitiveObjectFormatter.cs
+            and
+            https://github.com/neuecc/MessagePack-CSharp/blob/v1.7.3.7/src/MessagePack/Formatters/StandardClassLibraryFormatter.cs
+            </remarks>
+        </member>
+        <member name="T:Newtonsoft.MessagePack.MessagePackType">
+            <summary>
+            https://github.com/msgpack/msgpack/blob/master/spec.md#serialization-type-to-format-conversion
+            </summary>
+        </member>
+        <member name="T:Newtonsoft.MessagePack.MessagePackCode">
+            <summary>
+            https://github.com/msgpack/msgpack/blob/master/spec.md#overview
+            </summary>
+        </member>
+    </members>
+</doc>

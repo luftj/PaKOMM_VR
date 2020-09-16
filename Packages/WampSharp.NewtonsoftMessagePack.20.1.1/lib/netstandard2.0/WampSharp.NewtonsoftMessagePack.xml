@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WampSharp.NewtonsoftMessagePack</name>
+    </assembly>
+    <members>
+        <member name="T:WampSharp.Binding.JTokenMessagePackBinding">
+            <summary>
+            Represents MsgPack binding implemented using Newtonsoft.Msgpack.
+            </summary>
+        </member>
+        <member name="M:WampSharp.V2.Fluent.NewtonsoftMessagePackChannelFactoryExtensions.MessagePackSerialization(WampSharp.V2.Fluent.ChannelFactorySyntax.ITransportSyntax)">
+            <summary>
+            Indicates that the user wants to use Msgpack serialization.
+            </summary>
+        </member>
+        <member name="M:WampSharp.V2.Fluent.NewtonsoftMessagePackChannelFactoryExtensions.MessagePackSerialization(WampSharp.V2.Fluent.ChannelFactorySyntax.ITransportSyntax,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Indicates that the user wants to use Msgpack serialization.
+            </summary>
+            <param name="transportSyntax"></param>
+            <param name="serializer">The <see cref="T:Newtonsoft.Json.JsonSerializer"/> to serialize messages with.</param>
+        </member>
+    </members>
+</doc>
