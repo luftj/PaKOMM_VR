@@ -1,7 +1,7 @@
 # PaKOMM_VR
 
 
-
+developed/tested for Oculus Quest with:
 unity version 2019.4.5f1
 
 Unity packages:
